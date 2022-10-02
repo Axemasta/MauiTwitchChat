@@ -1,4 +1,6 @@
 ﻿using System.Diagnostics;
+using Axemasta.TwitchChat.Abstractions;
+using Axemasta.TwitchChat.Services;
 using Axemasta.TwitchChat.ViewModels;
 using Axemasta.TwitchChat.Views;
 
@@ -23,6 +25,10 @@ namespace Axemasta.TwitchChat
 
         private static void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            // Services
+            containerRegistry.RegisterSingleton<ITwitchChatService, TwitchChatService>();
+
+            // Pages
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<ChatPage, ChatViewModel>();
         }
