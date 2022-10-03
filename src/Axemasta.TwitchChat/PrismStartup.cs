@@ -38,9 +38,9 @@ namespace Axemasta.TwitchChat
 
         }
 
-        private static async Task OnAppStart(INavigationService navigationService)
+        private static Task OnAppStart(INavigationService navigationService)
         {
-            
+            return Task.CompletedTask;
         }
     }
 }
