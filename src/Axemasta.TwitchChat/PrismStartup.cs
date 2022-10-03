@@ -14,7 +14,7 @@ namespace Axemasta.TwitchChat
                 .OnInitialized(OnInitialized)
                 .OnAppStart(async navigationService =>
                 {
-                    var nav = await navigationService.NavigateAsync("NavigationPage/ChatPage");
+                    var nav = await navigationService.NavigateAsync("NavigationPage/ConnectPage");
 
                     if (!nav.Success)
                     {
@@ -31,6 +31,7 @@ namespace Axemasta.TwitchChat
             // Pages
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<ChatPage, ChatViewModel>();
+            containerRegistry.RegisterForNavigation<ConnectPage, ConnectViewModel>();
         }
 
         private static void OnInitialized(IContainerProvider containerProvider)

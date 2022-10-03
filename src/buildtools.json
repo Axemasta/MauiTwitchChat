@@ -3,18 +3,6 @@
   "appConfig": {
     "strategy": "TransformOnly"
   },
-  "appSettings": {
-    "Axemasta.TwitchChat" :[
-      {
-        "properties": [
-          {
-            "name": "SampleProp",
-            "type": "String"
-          }
-        ]
-      }
-    ]
-  },
   "artifactCopy": {
     "disable": false
   },
@@ -49,6 +37,25 @@
     "filename": "ReleaseNotes.txt",
     "createInRoot": false,
     "disable": false
+  },
+  "appSettings": {
+    "Axemasta.TwitchChat": [
+      {
+        "className": "AppSettings",
+        "accessibility": "Internal",
+        "namespace": ".Helpers",
+        "properties": [
+          {
+            "name": "TwitchUsername",
+            "type": "String"
+          },
+          {
+            "name": "TwitchOAuthKey",
+            "type": "String"
+          }
+        ]
+      }
+    ]
   },
   "environment": {
     "defaults": {},

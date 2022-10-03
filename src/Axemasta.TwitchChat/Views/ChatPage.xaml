@@ -10,6 +10,8 @@
     <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
         <Label Text="Welcome to .NET MAUI!" />
 
-        <Label Text="{x:Static helpers:AppSettings.SampleProp}" />
+        <Label Text="{x:Static helpers:AppSettings.TwitchUsername}" />
+
+        <Label Text="{x:Static helpers:AppSettings.TwitchOAuthKey}" />
     </VerticalStackLayout>
 </ContentPage>

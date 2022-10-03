@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Axemasta.TwitchChat.Views.ConnectPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:Axemasta.TwitchChat.ViewModels"
+    Title="{Binding Title}"
+    x:DataType="vm:ConnectViewModel">
+    <VerticalStackLayout>
+        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <Entry Placeholder="Enter channel name..." Text="{Binding ChannelName}" />
+
+            <Button Command="{Binding ConnectCommand}" Text="Connect" />
+        </StackLayout>
+    </VerticalStackLayout>
+</ContentPage>

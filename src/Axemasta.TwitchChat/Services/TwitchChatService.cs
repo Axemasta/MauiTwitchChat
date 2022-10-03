@@ -5,6 +5,7 @@ using TwitchLib.Client.Events;
 using TwitchLib.Client.Models;
 using TwitchLib.Communication.Clients;
 using TwitchLib.Communication.Models;
+using AppSettings = Axemasta.TwitchChat.Helpers.AppSettings;
 
 namespace Axemasta.TwitchChat.Services
 {
@@ -25,7 +26,7 @@ namespace Axemasta.TwitchChat.Services
 
             try
             {
-                ConnectionCredentials credentials = new ConnectionCredentials("username", "oauth_token");
+                ConnectionCredentials credentials = new ConnectionCredentials(AppSettings.TwitchUsername, AppSettings.TwitchOAuthKey);
 
                 var clientOptions = new ClientOptions
                 {
