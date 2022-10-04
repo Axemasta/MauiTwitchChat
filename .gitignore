@@ -348,3 +348,20 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+
+# Mobile.BuildTools
+appsettings.json
+appsettings.*.json
+
+
+# Mobile.BuildTools
+appsettings.json
+appsettings.*.json
+
+
+# Mobile.BuildTools
+appsettings.json
+appsettings.*.json
+
+# macOS
+*.DS_Store
