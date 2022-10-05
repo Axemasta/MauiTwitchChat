@@ -1,4 +1,4 @@
-﻿using Axemasta.TwitchChat.Abstractions;
+using Axemasta.TwitchChat.Abstractions;
 using Microsoft.Extensions.Logging;
 using TwitchLib.Client;
 using TwitchLib.Client.Events;
@@ -42,6 +42,7 @@ namespace Axemasta.TwitchChat.Services
                 client.OnLog += Client_OnLog;
                 client.OnConnected += Client_OnConnected;
                 client.OnMessageReceived += Client_OnMessageReceived;
+                client.OnError += Client_OnError;
 
                 client.Connect();
 
@@ -51,6 +52,11 @@ namespace Axemasta.TwitchChat.Services
             {
                 logger.LogError(ex, "An exception occurred connecting to twitch chat");
             }
+        }
+
+        private void Client_OnError(object sender, TwitchLib.Communication.Events.OnErrorEventArgs e)
+        {
+            logger.LogError(e.Exception, "An exception was thrown by the twitch client");
         }
 
         private void Client_OnLog(object sender, OnLogArgs e)

@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,6 +41,13 @@ namespace Axemasta.TwitchChat.ViewModels
             }
 
             twitchChatService.Start(channelName);
+
+            var nav = await navigationService.NavigateAsync("ChatPage");
+
+            if (!nav.Success)
+            {
+                Debugger.Break();
+            }
         }
 
         private async Task CommandWrapper(Task action)
