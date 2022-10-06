@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -42,7 +42,12 @@ namespace Axemasta.TwitchChat.ViewModels
 
             twitchChatService.Start(channelName);
 
-            var nav = await navigationService.NavigateAsync("ChatPage");
+            var navParams = new NavigationParameters()
+            {
+                { "ChannelName", channelName }
+            };
+
+            var nav = await navigationService.NavigateAsync("ChatPage", navParams);
 
             if (!nav.Success)
             {

@@ -3,7 +3,7 @@
     x:Class="Axemasta.TwitchChat.Controls.TwitchChatView"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
-    <ScrollView>
+    <ScrollView x:Name="ChatScrollContainer">
         <StackLayout x:Name="ChatMessagesStack" Spacing="10" />
     </ScrollView>
 </ContentView>

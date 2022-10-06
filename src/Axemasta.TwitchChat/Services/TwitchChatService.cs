@@ -1,22 +1,26 @@
 using Axemasta.TwitchChat.Abstractions;
+using Axemasta.TwitchChat.Models;
 using Microsoft.Extensions.Logging;
 using TwitchLib.Client;
 using TwitchLib.Client.Events;
 using TwitchLib.Client.Models;
 using TwitchLib.Communication.Clients;
 using TwitchLib.Communication.Models;
-using AppSettings = Axemasta.TwitchChat.Helpers.AppSettings;
 
 namespace Axemasta.TwitchChat.Services
 {
     internal class TwitchChatService : ITwitchChatService
     {
-        TwitchClient client;
-
+        private readonly IEventAggregator eventAggregator;
         private readonly ILogger logger;
 
-        public TwitchChatService(ILogger<TwitchChatService> logger)
+        TwitchClient client;
+
+        public TwitchChatService(
+            IEventAggregator eventAggregator,
+            ILogger<TwitchChatService> logger)
         {
+            this.eventAggregator = eventAggregator;
             this.logger = logger;
         }
 
@@ -71,7 +75,8 @@ namespace Axemasta.TwitchChat.Services
 
         private void Client_OnMessageReceived(object sender, OnMessageReceivedArgs e)
         {
-            logger.LogInformation(e.ChatMessage.Username + " " + e.ChatMessage.Message);
+            eventAggregator.GetEvent<ChatMessageEvent>()
+                .Publish(e.ChatMessage);
         }
     }
 }

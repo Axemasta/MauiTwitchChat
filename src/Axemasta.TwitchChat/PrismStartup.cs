@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using Axemasta.TwitchChat.Abstractions;
+using Axemasta.TwitchChat.Helpers;
 using Axemasta.TwitchChat.Services;
 using Axemasta.TwitchChat.ViewModels;
 using Axemasta.TwitchChat.Views;
@@ -36,7 +37,7 @@ namespace Axemasta.TwitchChat
 
         private static void OnInitialized(IContainerProvider containerProvider)
         {
-
+            ContainerHelper.SetContainer(containerProvider);
         }
 
         private static Task OnAppStart(INavigationService navigationService)

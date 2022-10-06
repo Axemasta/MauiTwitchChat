@@ -12,18 +12,19 @@ using TwitchLib.Communication.Models;
 
 namespace Axemasta.TwitchChat.ViewModels
 {
-    internal class ChatViewModel : ViewModelBase
+    internal class ChatViewModel : ViewModelBase, IInitialize
     {
-        private readonly ITwitchChatService twitchChatService;
-
-        public ChatViewModel(INavigationService navigationService, ITwitchChatService twitchChatService)
+        public ChatViewModel(INavigationService navigationService)
             : base(navigationService)
         {
-            this.twitchChatService = twitchChatService;
+        }
 
-            Title = "Axemasta's Chat";
-
-            this.twitchChatService.Start("riotgames");
+        public void Initialize(INavigationParameters parameters)
+        {
+            if (parameters.TryGetValue("ChannelName", out string channelName))
+            {
+                Title = string.Format("{0}'s Chat", channelName);
+            }
         }
     }
 }
