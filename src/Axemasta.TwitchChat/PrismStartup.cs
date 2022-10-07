@@ -37,7 +37,6 @@ namespace Axemasta.TwitchChat
 
         private static void OnInitialized(IContainerProvider containerProvider)
         {
-            ContainerHelper.SetContainer(containerProvider);
         }
 
         private static Task OnAppStart(INavigationService navigationService)
